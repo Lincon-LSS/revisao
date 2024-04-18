@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Produto {
+    private final String designacao;
+    private final double valor;
+    private final int quantidadeEstoque;
+
+    public Produto(String designacao) {
+        this.designacao = designacao;
+        this.valor = 0.0;
+        this.quantidadeEstoque = 0;
+    }
+
+    public Produto(String designacao, double valor) {
+        this.designacao = designacao;
+        this.valor = valor;
+        this.quantidadeEstoque = 0;
+    }
+
+    public Produto(String designacao, double valor, int quantidadeEstoque) {
+        this.designacao = designacao;
+        this.valor = valor;
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+
+    public String obterDesignacao() {
+        return designacao;
+    }
+
+    public double obterValor() {
+        return valor;
+    }
+
+    public int obterQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Criação do primeiro "produto"
+        System.out.println("Criando o primeiro \"artigo\"...");
+        Produto artigo1 = new Produto("Artigo A");
+        System.out.println("Artigo 1 criado com sucesso!");
+        System.out.println("Designação: " + artigo1.obterDesignacao());
+        System.out.println("Valor: " + artigo1.obterValor());
+        System.out.println("Quantidade em estoque: " + artigo1.obterQuantidadeEstoque());
+        System.out.println();
+
+        // Criação do segundo "produto"
+        System.out.println("Criando o segundo \"artigo\"...");
+        System.out.print("Digite a designação do Artigo B: ");
+        String designacaoArtigoB = scanner.nextLine();
+        System.out.print("Digite o valor do Artigo B: ");
+        double valorArtigoB = scanner.nextDouble();
+        scanner.nextLine(); // Consumir a quebra de linha
+        Produto artigo2 = new Produto(designacaoArtigoB, valorArtigoB);
+        System.out.println("Artigo 2 criado com sucesso!");
+        System.out.println("Designação: " + artigo2.obterDesignacao());
+        System.out.println("Valor: " + artigo2.obterValor());
+        System.out.println("Quantidade em estoque: " + artigo2.obterQuantidadeEstoque());
+        System.out.println();
+
+        // Criação do terceiro "produto"
+        System.out.println("Criando o terceiro \"artigo\"...");
+        System.out.print("Digite a designação do Artigo C: ");
+        String designacaoArtigoC = scanner.nextLine();
+        System.out.print("Digite o valor do Artigo C: ");
+        double valorArtigoC = scanner.nextDouble();
+        System.out.print("Digite a quantidade de estoque do Artigo C: ");
+        int estoqueArtigoC = scanner.nextInt();
+        Produto artigo3 = new Produto(designacaoArtigoC, valorArtigoC, estoqueArtigoC);
+        System.out.println("Artigo 3 criado com sucesso!");
+        System.out.println("Designação: " + artigo3.obterDesignacao());
+        System.out.println("Valor: " + artigo3.obterValor());
+        System.out.println("Quantidade em estoque: " + artigo3.obterQuantidadeEstoque());
+
+        scanner.close();
+    }
+}
