@@ -1,0 +1,53 @@
+1- O que é orientação a objetos e quais são seus princípios fundamentais?
+	Orientação a objetos é um dos princípios da programação, ele organiza o código em unidades chamadas objetos, estes possuem características (atributos) e funções (métodos).
+	Princípios fundamentais:
+Abstração
+Herança
+Polimorfismo
+Encapsulamento
+
+2- Quais são as vantagens da orientação a objetos em comparação com paradigmas de programação procedural?
+Segurança
+Flexibilidade
+Modularidade
+Organização
+Reutilização dos códigos
+
+3- Explique o conceito de encapsulamento e como ele é implementado em linguagens de programação orientadas a objetos.
+	O encapsulamento é o conceito de esconder os detalhes internos de uma classe ou objeto, fornece uma interface simples e controlada.
+	Ele é implementado através de modificadores de acesso: public, private e protected.
+	
+4- Explique o conceito de classe e objeto em programação orientada a objetos, e como eles estão relacionados.
+	Classe, dando um exemplo na vida real podemos dizer que ela pode ser vista como uma forma de ovos de chocolate, onde colocamos o chocolate dentro e assim criamos o ovo da páscoa. Em programação orientada objetos, classe é a instância de um objeto, ou seja é onde criamos o objeto.
+	Objeto resumidamente é a instância de uma classe. 
+
+5- Qual é a importância dos construtores e métodos em uma classe em programação orientada a objetos?
+	Resumidamente sem os construtores não há como inicializar um objeto. Já os métodos são as funções dos objetos, ou seja, sem eles o objeto não terá funções (ações).
+
+6- Quais são as diferenças entre métodos estáticos e métodos de instância em uma classe?
+Métodos de instância são como ações que uma coisa específica (um objeto) pode fazer. Por exemplo, um carro pode ligar ou desligar.
+Métodos estáticos são como ações que a categoria em si pode fazer, sem depender de uma coisa específica. Por exemplo, calcular a média de uma lista de números.
+Resumidamente, métodos de instância são para coisas que objetos individuais fazem, enquanto métodos estáticos são para coisas que a classe como um todo faz.
+
+7- Como são tratados os conceitos de acoplamento e coesão na orientação a objetos e por que são importantes?
+	Em programação acoplamento se refere a dependência entre códigos. Já a coesão é como esses códigos se relacionam. Estes são muito importantes para manter o código flexível e de fácil entendimento.
+
+8- Qual é o objetivo do método main ?
+	Resumidamente o  método main permite a execução de um programa Java.
+
+9- Como ocorre a passagem de parâmetros em métodos de uma classe em programação orientada a objetos?
+	Ocorre quando você envia informações para um método para que ele possa realizar alguma operação. Os parâmetros são definidos na declaração do método e são usados dentro do próprio método para assim realizar operações específicas. Existem 2 formas que podemos fazer isso:
+Por valor: Nesse caso, uma cópia do valor do parâmetro é passada para o método. Qualquer alteração feita no parâmetro dentro do método não afeta o valor original.
+Por referência: Aqui, uma referência ao objeto é passada para o método. Isso significa que qualquer alteração feita no objeto dentro do método afetará o objeto original.
+
+	
+10- Qual é a diferença entre os modificadores de acesso "public", "private" e "protected" em uma classe?
+	 Public: permite que a classe seja acessada e utilizada de qualquer lugar do código.
+	Private: permite que APENAS seja acessado dentro de sua própria classe.
+Protected: permite ser acessado dentro de sua própria classe e também de uma sub classe. 
+
+11- Qual é a importância da palavra-chave "this" em programação orientada a objetos e como ela é utilizada?
+	A palavra-chave "this" é como um apontador especial que se refere ao próprio objeto em que está sendo usada. Ela é importante porque ajuda a distinguir entre variáveis locais e variáveis de instância em uma classe.
+Quando você usa "this" em um método de uma classe, você está se referindo aos atributos ou métodos da própria instância da classe. Isso é útil quando você tem variáveis locais com o mesmo nome dos atributos da classe. Usando "this", você pode deixar claro que está se referindo aos atributos da classe, não às variáveis locais.
+Resumidamente, "this" ajuda a evitar ambiguidades e torna o código mais claro e fácil de entender.
+
