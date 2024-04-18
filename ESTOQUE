@@ -1,0 +1,148 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    private static class Produto {
+        private String nome;
+        private double preco;
+        private int quantidadeEmEstoque;
+
+        public Produto(String nome, double preco, int quantidadeEmEstoque) {
+            this.nome = nome;
+            this.preco = preco;
+            this.quantidadeEmEstoque = quantidadeEmEstoque;
+        }
+
+        public String getNome() {
+            return nome;
+        }
+
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+
+        public double getPreco() {
+            return preco;
+        }
+
+        public void setPreco(double preco) {
+            this.preco = preco;
+        }
+
+        public int getQuantidadeEmEstoque() {
+            return quantidadeEmEstoque;
+        }
+
+        public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+            this.quantidadeEmEstoque = quantidadeEmEstoque;
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Produto> estoque = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            exibirMenu();
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // Consumir a quebra de linha
+
+            switch (opcao) {
+                case 1:
+                    adicionarProduto(scanner, estoque);
+                    break;
+                case 2:
+                    atualizarProduto(scanner, estoque);
+                    break;
+                case 3:
+                    exibirDetalhes(scanner, estoque);
+                    break;
+                case 4:
+                    System.out.println("Encerrando o programa...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Opção inválida! Por favor, escolha uma opção válida.");
+            }
+        }
+    }
+
+    private static void exibirMenu() {
+        System.out.println("1. Adicionar novo produto");
+        System.out.println("2. Atualizar preço ou quantidade em estoque");
+        System.out.println("3. Exibir detalhes de um produto");
+        System.out.println("4. Sair");
+        System.out.print("Escolha uma opção: ");
+    }
+
+    private static void adicionarProduto(Scanner scanner, ArrayList<Produto> estoque) {
+        System.out.print("Digite o nome do produto: ");
+        String nome = scanner.nextLine();
+        System.out.print("Digite o preço do produto: ");
+        double preco = scanner.nextDouble();
+        System.out.print("Digite a quantidade em estoque do produto: ");
+        int quantidade = scanner.nextInt();
+
+        Produto novoProduto = new Produto(nome, preco, quantidade);
+        estoque.add(novoProduto);
+        System.out.println("Produto adicionado ao estoque com sucesso!");
+    }
+
+    private static void atualizarProduto(Scanner scanner, ArrayList<Produto> estoque) {
+        if (estoque.isEmpty()) {
+            System.out.println("Nenhum produto cadastrado no estoque.");
+            return;
+        }
+
+        System.out.print("Digite o nome do produto que deseja atualizar: ");
+        String nomeProduto = scanner.nextLine();
+
+        boolean produtoEncontrado = false;
+        for (Produto produto : estoque) {
+            if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
+                System.out.print("Digite o novo preço do produto: ");
+                double novoPreco = scanner.nextDouble();
+                produto.setPreco(novoPreco);
+
+                System.out.print("Digite a nova quantidade em estoque do produto: ");
+                int novaQuantidade = scanner.nextInt();
+                produto.setQuantidadeEmEstoque(novaQuantidade);
+
+                produtoEncontrado = true;
+                System.out.println("Produto atualizado com sucesso!");
+                break;
+            }
+        }
+
+        if (!produtoEncontrado) {
+            System.out.println("Produto não encontrado no estoque.");
+        }
+    }
+
+    private static void exibirDetalhes(Scanner scanner, ArrayList<Produto> estoque) {
+        if (estoque.isEmpty()) {
+            System.out.println("Nenhum produto cadastrado no estoque.");
+            return;
+        }
+
+        System.out.print("Digite o nome do produto que deseja visualizar: ");
+        String nomeProduto = scanner.nextLine();
+
+        boolean produtoEncontrado = false;
+        for (Produto produto : estoque) {
+            if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
+                System.out.println("\nDetalhes do produto:");
+                System.out.println("Nome: " + produto.getNome());
+                System.out.println("Preço: R$" + produto.getPreco());
+                System.out.println("Quantidade em Estoque: " + produto.getQuantidadeEmEstoque());
+                produtoEncontrado = true;
+                break;
+            }
+        }
+
+        if (!produtoEncontrado) {
+            System.out.println("Produto não encontrado no estoque.");
+        }
+    }
+}
+
