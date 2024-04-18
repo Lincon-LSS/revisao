@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Circulo {
+    private double tamanho;
+    private String tonalidade;
+
+    public Circulo(double tamanho, String tonalidade) {
+        this.tamanho = tamanho;
+        this.tonalidade = tonalidade;
+    }
+
+    public double obterTamanho() {
+        return tamanho;
+    }
+
+    public String obterTonalidade() {
+        return tonalidade;
+    }
+
+    public double calcularArea() {
+        return Math.PI * tamanho * tamanho;
+    }
+
+    public double calcularPerimetro() {
+        return 2 * Math.PI * tamanho;
+    }
+
+    public static void main(String[] args) {
+        Scanner leitor = new Scanner(System.in);
+
+        System.out.println("Informe o tamanho do círculo:");
+        double tamanho = leitor.nextDouble();
+
+        System.out.println("Informe a tonalidade do círculo:");
+        leitor.nextLine();
+        String tonalidade = leitor.nextLine();
+
+        Circulo forma = new Circulo(tamanho, tonalidade);
+
+        System.out.println("Círculo:");
+        System.out.println("Tamanho: " + forma.obterTamanho());
+        System.out.println("Tonalidade: " + forma.obterTonalidade());
+        System.out.println("Área: " + forma.calcularArea());
+        System.out.println("Perímetro: " + forma.calcularPerimetro());
+
+        leitor.close();
+    }
+}
